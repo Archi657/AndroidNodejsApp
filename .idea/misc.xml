@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Repositorios/bici/app/src/main/res/layout/fragment_login.xml" value="0.3061594202898551" />
+        <entry key="..\:/Repositorios/bici/app/src/main/res/layout/fragment_registro.xml" value="0.33" />
+        <entry key="..\:/Repositorios/bici/app/src/main/res/layout/fragment_scrolling.xml" value="0.3061594202898551" />
+        <entry key="..\:/Repositorios/bici/app/src/main/res/layout/home.xml" value="0.3061594202898551" />
+        <entry key="..\:/Repositorios/bici/app/src/main/res/layout/interfaz_estudiante.xml" value="0.3061594202898551" />
+        <entry key="..\:/U/S6/bici/app/src/main/res/layout/fragment_modificar_usuario.xml" value="0.5" />
+        <entry key="..\:/U/S6/bici/app/src/main/res/layout/interfaz_estudiante.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/sdjComp/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/sdjComp/app/src/main/res/layout/content_main.xml" value="0.3625" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/sdjComp/app/src/main/res/layout/fragment_first.xml" value="0.358695652173913" />

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_Home_to_InterfazEstudiante"
             app:destination="@id/InterfazEstudiante" />
+        <action
+            android:id="@+id/action_Home_to_fragment_registro"
+            app:destination="@id/fragment_registro" />
     </fragment>
     <fragment
         android:id="@+id/InterfazEstudiante"
@@ -23,5 +26,30 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/Home" />
+        <action
+            android:id="@+id/action_InterfazEstudiante_to_fragment_modificar_usuario"
+            app:destination="@id/fragment_modificar_usuario" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_registro"
+        android:name="com.example.sdjcomp.Registro"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_registro">
+
+
+        <action
+            android:id="@+id/action_fragment_registro_to_Home"
+            app:destination="@id/Home" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_modificar_usuario"
+        android:name="com.example.sdjcomp.ModificarUsuario"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_modificar_usuario">
+
+
+        <action
+            android:id="@+id/action_fragment_modificar_usuario_to_InterfazEstudiante"
+            app:destination="@id/InterfazEstudiante" />
     </fragment>
 </navigation>

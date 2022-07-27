@@ -26,7 +26,7 @@ public class Home extends Fragment {
     private HomeBinding binding;
     private Retrofit retrofit;
     private IRetroFit iRetrofit;
-    private String URL="http://192.168.20.25:3000/login/";
+    private String URL="http://192.168.1.14:3000/login/";
     private boolean validado;
 
     @Override
@@ -37,6 +37,7 @@ public class Home extends Fragment {
 
         View v = inflater.inflate(R.layout.home,container,false);
         Button btnIniciar = (Button) v.findViewById(R.id.btnIniciarSeseion);
+        Button btnRegistrarse = (Button) v.findViewById(R.id.btnRegistrarse);
         binding = HomeBinding.inflate(inflater, container, false);
 
         retrofit = new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build();
@@ -58,14 +59,18 @@ public class Home extends Fragment {
                 call.enqueue(new Callback<PreLoginUsuario>() {
                     @Override
                     public void onResponse(Call<PreLoginUsuario> call, Response<PreLoginUsuario> response) {
+                        System.out.println(response.code());
                         //si la bd devuel 200 y luego se revisa por segunda vez si coinciden
                         if(response.code()==200)
                         {
+
                             PreLoginUsuario result = response.body();
+                            System.out.println(map.get("correo")+" " + result.getCorreo() + " " + map.get("correo").equals(result.getCorreo()));
                             if(map.get("correo").equals(result.getCorreo()) && map.get("clave").equals(result.getClave()))
                             {
                                 System.out.println("JULIAN!!!¡");
                                 validado=true;
+                                ((Sesion) getActivity().getApplicationContext()).setCorreo(txtCorreo.getText().toString());
                                 NavHostFragment.findNavController(Home.this).navigate(R.id.action_Home_to_InterfazEstudiante);
                             }
                         }
@@ -80,6 +85,13 @@ public class Home extends Fragment {
                         Toast.makeText(getContext(), "UPSI", Toast.LENGTH_LONG).show();
                     }
                 });
+            }
+        });
+
+        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(Home.this).navigate(R.id.action_Home_to_fragment_registro);
             }
         });
 
