@@ -10,12 +10,18 @@
     <string name="olvidoContrasena">¿Olvido su contraseña?</string>
     <string name="email">person@correo.udistrital.edu.co</string>
     <string name="verRegistros">Ver Registros</string>
+    <string name="verRegistrosCupos">Ver registros de cupos en uso</string>
+    <string name="AsignarCupo">AsignarCupo</string>
+    <string name="DesAsignarCupo">DesAsignar Cupo</string>
+    <string name="CerrarSesion">Cerrar Sesion</string>
 
-    <string-array name="preguntas">
-        <item>¿Tu color favorito?</item>
-        <item>¿Tu libro favorito?</item>
-        <item>¿Tu pelicula favorita?</item>
+    <string-array name="seccion">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
+
+    <string name="IP">192.168.1.10</string>
 
     <string name="title">BICI UD</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

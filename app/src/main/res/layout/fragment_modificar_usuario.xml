@@ -24,11 +24,11 @@
         android:id="@+id/lblTituloM"
         android:layout_width="380dp"
         android:layout_height="79dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="48dp"
         android:singleLine="false"
         android:text="Modificar Informacion de usuario"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,10 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="222dp"
+        android:layout_marginTop="17dp"
         android:text="Nombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTituloM" />
 
     <EditText
         android:id="@+id/edtNombreM"
@@ -93,7 +93,6 @@
         android:layout_height="48dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="28dp"
-        android:entries="@array/preguntas"
         app:layout_constraintStart_toEndOf="@+id/lblPregunta2"
         app:layout_constraintTop_toBottomOf="@+id/edtClaveM" />
 
@@ -161,5 +160,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/edtRespuestaM"
         app:layout_constraintTop_toBottomOf="@+id/btnModificarClave" />
+
+    <ImageButton
+        android:id="@+id/btnModificarPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/ic_bxs_up_arrow_circle"
+        app:layout_constraintStart_toEndOf="@+id/spnPreguntasM"
+        app:layout_constraintTop_toBottomOf="@+id/btnModificarClave" />
+
+    <Button
+        android:id="@+id/btnVolverModUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="23dp"
+        android:text="Volver"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnModificarUsuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

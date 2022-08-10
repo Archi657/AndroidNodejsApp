@@ -26,25 +26,51 @@ public class InterfazEstudiante extends Fragment {
 
     private Retrofit retrofit;
     private IRetroFit iRetrofit;
-    private String URL="http://192.168.1.14:3000/getUser/";
+    private String URL="";
 
     private TextView txtTitulo;
-    private Button btnActualizarUsuario, btnEliminarUsuario;
+    private Button btnActualizarUsuario, btnEliminarUsuario, btnVerRegistros, btnRegistrarBicicleta, btnVolver;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        URL="http://"+getResources().getString(R.string.IP)+":3000/getUser/";
         View v = inflater.inflate(R.layout.interfaz_estudiante, container, false);
 
 
         txtTitulo = v.findViewById(R.id.lblTitulo);
         btnActualizarUsuario = v.findViewById(R.id.btnModificarUsuario);
         btnEliminarUsuario = v.findViewById(R.id.btnEliminarUsuario);
+        btnRegistrarBicicleta = v.findViewById(R.id.btnRegistrarBicicleta);
+        btnVolver = v.findViewById(R.id.btnVolver);
+
 
         retrofit = new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build();
         iRetrofit = retrofit.create(IRetroFit.class);
+
+        //ver registros
+
+        btnVerRegistros = (Button) v.findViewById(R.id.btnVerRegistros);
+        btnVerRegistros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(InterfazEstudiante.this)
+                        .navigate(R.id.action_InterfazEstudiante_to_interfazBicicleta);
+            }
+        });
+
+        btnRegistrarBicicleta = (Button) v.findViewById(R.id.btnRegistrarBicicleta);
+        btnRegistrarBicicleta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(InterfazEstudiante.this)
+                        .navigate(R.id.action_InterfazEstudiante_to_registrarBicicleta);
+            }
+        });
+
+
 
         Call<Usuario> call = iRetrofit.executeGetUser(((Sesion)getActivity().getApplicationContext()).getCorreo());
         call.enqueue(new Callback<Usuario>() {
@@ -90,7 +116,7 @@ public class InterfazEstudiante extends Fragment {
                         if(response.code()==200) {
                             if (Integer.parseInt(String.valueOf(response.body())) == 1) {
                                 NavHostFragment.findNavController(InterfazEstudiante.this)
-                                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                                        .navigate(R.id.action_InterfazEstudiante_to_Home);
                             } else {
                                 Toast.makeText(getContext(), "Usuario no eliminado", Toast.LENGTH_LONG).show();
                             }
@@ -104,22 +130,22 @@ public class InterfazEstudiante extends Fragment {
             }
         });
 
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Sesion) getActivity().getApplicationContext()).setCorreo("");
+                ((Sesion) getActivity().getApplicationContext()).setClave("");
+                ((Sesion) getActivity().getApplicationContext()).setValidado(false);
+
+                NavHostFragment.findNavController(InterfazEstudiante.this)
+                        .navigate(R.id.action_InterfazEstudiante_to_Home);
+            }
+        });
+
 
         binding = InterfazEstudianteBinding.inflate(inflater, container, false);
         return v;
 
-    }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(InterfazEstudiante.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-            }
-        });
     }
 
     @Override
@@ -130,7 +156,7 @@ public class InterfazEstudiante extends Fragment {
 
     public void eliminar()
     {
-        URL = "http://192.168.1.14:3000/deleteUser/";
+        URL = "http://"+getResources().getString(R.string.IP)+":3000/deleteUser/";
         retrofit = new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build();
         iRetrofit = retrofit.create(IRetroFit.class);
 

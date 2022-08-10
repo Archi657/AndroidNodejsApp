@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_Home_to_fragment_registro"
             app:destination="@id/fragment_registro" />
+        <action
+            android:id="@+id/action_Home_to_interfaz_administrador"
+            app:destination="@id/interfaz_administrador" />
+        <action
+            android:id="@+id/action_Home_to_recuperarcontrasena"
+            app:destination="@id/recuperarcontrasena" />
     </fragment>
     <fragment
         android:id="@+id/InterfazEstudiante"
@@ -24,11 +30,20 @@
         tools:layout="@layout/interfaz_estudiante">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/Home" />
-        <action
             android:id="@+id/action_InterfazEstudiante_to_fragment_modificar_usuario"
             app:destination="@id/fragment_modificar_usuario" />
+        <action
+            android:id="@+id/action_InterfazEstudiante_to_interfazBicicleta"
+            app:destination="@id/interfazBicicleta" />
+        <action
+            android:id="@+id/action_InterfazEstudiante_to_registrarBicicleta"
+            app:destination="@id/registrarBicicleta" />
+        <action
+            android:id="@+id/action_InterfazEstudiante_to_Home"
+            app:destination="@id/Home" />
+        <action
+            android:id="@+id/action_InterfazEstudiante_to_modificarYEliminarBicicleta"
+            app:destination="@id/modificarYEliminarBicicleta" />
     </fragment>
     <fragment
         android:id="@+id/fragment_registro"
@@ -36,20 +51,152 @@
         android:label="@string/title"
         tools:layout="@layout/fragment_registro">
 
-
         <action
             android:id="@+id/action_fragment_registro_to_Home"
             app:destination="@id/Home" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_modificar_usuario"
         android:name="com.example.sdjcomp.ModificarUsuario"
-        android:label="@string/title"
+        android:label="Modificar Estudiante"
         tools:layout="@layout/fragment_modificar_usuario">
 
 
         <action
             android:id="@+id/action_fragment_modificar_usuario_to_InterfazEstudiante"
             app:destination="@id/InterfazEstudiante" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/interfazBicicleta"
+        android:name="com.example.sdjcomp.InterfazBicicleta"
+        android:label="Bicicletas"
+        tools:layout="@layout/fragment_interfaz_bicicleta">
+        <action
+            android:id="@+id/action_interfazBicicleta_to_InterfazEstudiante"
+            app:destination="@id/InterfazEstudiante" />
+        <action
+            android:id="@+id/action_interfazBicicleta_to_interfaz_administrador"
+            app:destination="@id/interfaz_administrador" />
+        <action
+            android:id="@+id/action_interfazBicicleta_self"
+            app:destination="@id/interfazBicicleta" />
+        <action
+            android:id="@+id/action_interfazBicicleta_to_modificarYEliminarBicicleta"
+            app:destination="@id/modificarYEliminarBicicleta" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrarBicicleta"
+        android:name="com.example.sdjcomp.RegistrarBicicleta"
+        android:label="Registrar Bicicleta"
+        tools:layout="@layout/fragment_registrar_bicicleta" >
+        <action
+            android:id="@+id/action_registrarBicicleta_to_interfazBicicleta2"
+            app:destination="@id/interfazBicicleta" />
+        <action
+            android:id="@+id/action_registrarBicicleta_to_InterfazEstudiante"
+            app:destination="@id/InterfazEstudiante" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/interfaz_administrador"
+        android:name="com.example.sdjcomp.InterfazAdministrador"
+        android:label="Interfaz Administrador"
+        tools:layout="@layout/interfaz_administrador">
+
+        <action
+            android:id="@+id/action_interfaz_administrador_to_Home"
+            app:destination="@id/Home" />
+        <action
+            android:id="@+id/action_interfaz_administrador_to_consultarCupo"
+            app:destination="@id/consultarCupo" />
+        <action
+            android:id="@+id/action_interfaz_administrador_to_asignarCupo"
+            app:destination="@id/asignarCupo" />
+        <action
+            android:id="@+id/action_interfaz_administrador_to_desasignarCupo"
+            app:destination="@id/desasignarCupo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/consultarCupo"
+        android:name="com.example.sdjcomp.ConsultarCupo"
+        android:label="Consultar Secciones"
+        tools:layout="@layout/consultar_cupo">
+        <action
+            android:id="@+id/action_consultarCupo_self"
+            app:destination="@id/consultarCupo" />
+        <action
+            android:id="@+id/action_consultarCupo_to_consultarParqueaderoSeccion"
+            app:destination="@id/consultarParqueaderoSeccion" />
+        <action
+            android:id="@+id/action_consultarCupo_to_interfaz_administrador"
+            app:destination="@id/interfaz_administrador" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/asignarCupo"
+        android:name="com.example.sdjcomp.AsignarCupo"
+        android:label="Asignar Cupo"
+        tools:layout="@layout/asignar_cupo">
+        <action
+            android:id="@+id/action_asignarCupo_to_interfaz_administrador"
+            app:destination="@id/interfaz_administrador" />
+        <action
+            android:id="@+id/action_asignarCupo_to_interfazBicicleta"
+            app:destination="@id/interfazBicicleta" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultarParqueaderoSeccion"
+        android:name="com.example.sdjcomp.ConsultarParqueaderoSeccion"
+        android:label="Consultar Parqueaderos"
+        tools:layout="@layout/consultar_parqueadero_seccion">
+        <action
+            android:id="@+id/action_consultarParqueaderoSeccion_to_consultarCupo"
+            app:destination="@id/consultarCupo" />
+        <action
+            android:id="@+id/action_consultarParqueaderoSeccion_self"
+            app:destination="@id/consultarParqueaderoSeccion" />
+    </fragment>
+    <fragment
+        android:id="@+id/desasignarCupo"
+        android:name="com.example.sdjcomp.DesasignarCupo"
+        android:label="DesAsignar Cupo"
+        tools:layout="@layout/desasignar_cupo">
+        <action
+            android:id="@+id/action_desasignarCupo_to_interfaz_administrador"
+            app:destination="@id/interfaz_administrador" />
+    </fragment>
+    <fragment
+        android:id="@+id/recuperarcontrasena"
+        android:name="com.example.sdjcomp.Recuperarcontrasena"
+        android:label="fragment_recuperarcontrasena"
+        tools:layout="@layout/fragment_recuperarcontrasena" >
+        <action
+            android:id="@+id/action_recuperarcontrasena_to_Home"
+            app:destination="@id/Home" />
+    </fragment>
+    <fragment
+        android:id="@+id/modificarYEliminarBicicleta"
+        android:name="com.example.sdjcomp.ModificarYEliminarBicicleta"
+        android:label="fragment_modificar_y_eliminar_bicicleta"
+        tools:layout="@layout/fragment_modificar_y_eliminar_bicicleta" >
+        <action
+            android:id="@+id/action_modificarYEliminarBicicleta_to_modificarBicicleta"
+            app:destination="@id/modificarBicicleta" />
+        <action
+            android:id="@+id/action_modificarYEliminarBicicleta_to_InterfazEstudiante"
+            app:destination="@id/InterfazEstudiante" />
+    </fragment>
+    <fragment
+        android:id="@+id/modificarBicicleta"
+        android:name="com.example.sdjcomp.ModificarBicicleta"
+        android:label="fragment_modificar_bicicleta"
+        tools:layout="@layout/fragment_modificar_bicicleta" >
+        <action
+            android:id="@+id/action_modificarBicicleta_to_modificarYEliminarBicicleta"
+            app:destination="@id/modificarYEliminarBicicleta" />
     </fragment>
 </navigation>
