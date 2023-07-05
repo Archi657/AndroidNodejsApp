@@ -21,9 +21,8 @@ allowing the administrators to see the parking lots in use and which vehicles an
 - Register new users/vehicles/parking spaces.
 - Administrate users/vehicles/parking spaces.
 
-## Interface
-
-![image](https://user-images.githubusercontent.com/40327956/231315342-56481ac9-4428-413e-8792-e3d52b64feb8.png)
+## Admin Interface
+![studio64_5LnpRqWn53](https://github.com/Archi657/AndroidParkingApp/assets/40327956/2cd2ba70-99a7-4323-84eb-2b792a52ea90) ![studio64_dZ06FI5H4T](https://github.com/Archi657/AndroidParkingApp/assets/40327956/45bf3d3d-02e9-4d76-8c28-08a54583ce92)
 
 ## Deployment
 
